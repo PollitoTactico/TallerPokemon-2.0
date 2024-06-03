@@ -12,17 +12,24 @@
         <Label Text="LA REAL POKEDEX"
                FontSize="24"
                HorizontalOptions="Center" />
-
-        <CollectionView ItemsSource="{Binding Pokemons}">
-            <CollectionView.ItemTemplate>
+        <Button
+            x:Name="Pokedex"
+            Text="Informacion Pokemon"
+            SemanticProperties.Hint="nose"
+            Clicked="Pokedex_Clicked"
+            HorizontalOptions="Center" />
+        <ActivityIndicator x:Name="papu" HeightRequest="30" Color="Blue" IsRunning="True"/>
+        <ListView x:Name="Pokemons" ItemTapped="Pokemons_ItemTapped">
+            <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Orientation="Horizontal" Padding="10">
-                        <Image Source="{Binding ImageUrl}" WidthRequest="50" HeightRequest="50" />
-                        <Label Text="{Binding Name}" VerticalOptions="Center" FontSize="18" />
-                    </StackLayout>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <Image Source="{Binding ImageUrl}" WidthRequest="50" HeightRequest="50" />
+                            <Label Text="{Binding name}" VerticalOptions="Center" FontSize="18" />
+                        </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
-
 </ContentPage>

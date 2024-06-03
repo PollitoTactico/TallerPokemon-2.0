@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using TallerPokemon.Views;
+using TallerPokemon.Services;
 
 namespace TallerPokemon
 {
@@ -15,6 +17,8 @@ namespace TallerPokemon
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<PokemonServices, PokemonSer>();
+            builder.Services.AddTransient<PokemonPage>();
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
@@ -22,4 +26,6 @@ namespace TallerPokemon
             return builder.Build();
         }
     }
+
+   
 }
